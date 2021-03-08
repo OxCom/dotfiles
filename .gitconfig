@@ -1,11 +1,13 @@
 [user]
-	email = gm.oxcom@gmail.com
-	name = Andrii Afanasiev
+    email = gm.oxcom@gmail.com
+    name = Andrii Afanasiev
 
 [alias]
-    graph = log --graph --abbrev-commit --decorate --all \
-        --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) \
-        - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"
+    # logs
+    dog = log --all --decorate --oneline --graph
+    lg = log --graph --abbrev-commit --decorate --all \
+        --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) \
+        - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)'
 
     # Remove branches that have already been merged with master
     dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d; git remote -v update -p"
