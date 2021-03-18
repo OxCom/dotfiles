@@ -7,12 +7,31 @@
     "mocha": true
   },
   "extends": "eslint:recommended",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "requireConfigFile": false,
     "ecmaVersion": 2021,
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "sourceType": "module"
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-env", "@babel/react"],
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs",
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-class-properties",
+        ["@babel/plugin-proposal-object-rest-spread", {"loose": true, "useBuiltIns": true}],
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-transform-object-assign",
+        ["@babel/plugin-proposal-pipeline-operator", {
+          "proposal": "minimal"
+        }]
+      ]
+    }
+  },
+  "ecmaFeatures": {
+    "classes": true,
+    "jsx": true,
+    "globalReturn": false
   },
   "rules": {
     "no-console": "off",
