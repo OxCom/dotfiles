@@ -6,7 +6,7 @@
     "node": true,
     "mocha": true
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "requireConfigFile": false,
@@ -16,46 +16,31 @@
     "babelOptions": {
       "presets": ["@babel/preset-env", "@babel/react"],
       "plugins": [
-        "@babel/plugin-transform-modules-commonjs",
         "@babel/plugin-syntax-dynamic-import",
-        "@babel/plugin-proposal-class-properties",
-        ["@babel/plugin-proposal-object-rest-spread", {"loose": true, "useBuiltIns": true}],
-        "@babel/plugin-transform-runtime",
-        "@babel/plugin-transform-object-assign",
-        ["@babel/plugin-proposal-pipeline-operator", {
-          "proposal": "minimal"
-        }]
+        "@babel/plugin-proposal-class-properties"
       ]
     }
   },
-  "ecmaFeatures": {
-    "classes": true,
-    "jsx": true,
-    "globalReturn": false
-  },
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "no-console": "off",
     "indent": ["error", 4, {"SwitchCase": 1}],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "react/jsx-no-bind": ["error", {
-      "allowArrowFunctions": true,
-      "allowBind": false,
-      "ignoreRefs": true
-    }],
-    "react/no-did-update-set-state": "error",
-    "react/no-unknown-property": "error",
-    "react/no-unused-prop-types": "error",
-    "react/prop-types": "error",
-    "react/react-in-jsx-scope": "error"
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/prop-types": "off"
   },
   "settings": {
     "react": {
-      "version": "detect"
+      "createClass": "createReactClass", // Regex for Component Factory to use,
+      "pragma": "React",  // Pragma to use, default to "React"
+      "fragment": "Fragment",  // Fragment to use (may be a property of <pragma>), default to "Fragment"
+      "version": "detect", // React version. "detect" automatically picks the version you have installed.
+      "flowVersion": "detect" // Flow version
     }
-  },
-  "plugins": [
-    "react"
-  ]
+  }
 }
