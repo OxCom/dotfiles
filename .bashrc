@@ -116,6 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f /usr/bin/kubectl ]; then
+  alias k=kubectl
+  complete -F __start_kubectl k
+fi
 
 # export PS1='[\[\e[1;31m\]\u\[\e[m\]:\[\e[1;32m\]\W\[\e[m\]$(__git_ps1 " on \[\e[35m\]%s\[\e[m\]")]\$ '
 export PS1='[\[\e[1;31m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[1;32m\]\W\[\e[m\]$(__git_ps1 " on \[\e[35m\]%s\[\e[m\]")]\$ '
