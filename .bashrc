@@ -128,3 +128,5 @@ export PS1='[\[\e[1;31m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[1;32m\]\W\[\e[m\]$
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
 fi
+
+export DOCKER_USER="$(id -u):$(id -g)"
